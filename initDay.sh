@@ -25,6 +25,6 @@ fi
 cp ${solutionsDir}/solveTemplate.py "${solutionFile}"
 sed -i "s/DAY_NUM/${day}/g" "${solutionFile}"
 
-touch "${dayInputDirectory}/exampleData.txt"
+touch "${dayInputDirectory}/example"
 
 echo "Day ${day} initialized."
