@@ -19,7 +19,7 @@ if input_lines is None:
 
 
 result1 = 0
-result2 = 1
+result2 = 0
 
 print(f"task1: {result1}")
 print(f"task2: {result2}")
