@@ -70,19 +70,19 @@ def main():
     files = []
 
     for i, c in enumerate(input_lines[0]):
-        size = int(c)
-        if size == 0:
+        if c == '0':
             continue
+        size = int(c)
         if i % 2 == 0:
             id = i // 2
             files.append((id, size, len(mem)))
-            mem.extend([id]*size)
+            mem.extend([id] * size)
         else:
             empty_spaces[size].append(len(mem))
             mem.extend([None] * size)
 
     checksum1 = count_checksum1(mem)
-    checksum2 = count_checksum2([None for _ in range(len(mem))], files, empty_spaces)
+    checksum2 = count_checksum2([None] * len(mem), files, empty_spaces)
 
     print(f"task1: {checksum1}")
     print(f"task2: {checksum2}")
