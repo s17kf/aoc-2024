@@ -5,6 +5,8 @@ if [[ $# -ne 1 ]]; then
     exit 1
 fi
 
+cd "$(dirname "$0")" || exit
+
 day=$1
 solutionsDir="solutions"
 solutionFile="${solutionsDir}/solve${day}.py"
@@ -26,5 +28,8 @@ cp ${solutionsDir}/solveTemplate.py "${solutionFile}"
 sed -i "s/DAY_NUM/${day}/g" "${solutionFile}"
 
 touch "${dayInputDirectory}/example"
+
+wget --no-cookies --header "Cookie: $(cat session.cookie)" https://adventofcode.com/2024/day/10/input
+mv input "${dayInputDirectory}/input"
 
 echo "Day ${day} initialized."
